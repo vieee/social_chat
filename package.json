@@ -1,0 +1,25 @@
+{
+  "name": "social_chat",
+  "version": "1.0.0",
+  "main": "server.js",
+  "license": "MIT",
+  "description": "Connecting friends",
+  "repository": "https://github.com/vieee",
+  "author": "it_vineh",
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "neo4j-driver": "^4.1.2",
+    "pug": "^3.0.0"
+  },
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}

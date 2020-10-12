@@ -1,0 +1,38 @@
+include imports/header.pug
+
+    a(href="/") Go Back
+    h1
+        i(class="fa fa-user")
+        span  #{name}
+
+    if city
+        h4
+            i(class="fa fa-map-marker")
+            span  Birthplace: #{city}, #{state}
+
+    - var condition = (friends.length > 0) ? true : false;
+    - var entercity = (city != null) ? city : "City";
+
+    if condition
+    ul.list-group
+        each person in friends
+            li.list-group-item
+                a(href=`/person/${person.id}`)  #{person.name}
+
+
+    h3 Add Friend
+    form(method="POST" action="/friends/connect")
+        input(type="hidden" name="id" value=`${id}`)
+        input(type="hidden" name="name1" value=`${name}`)
+        input(type="text" name="name2" placeholder="Name")
+        input(type="submit" value="Submit" class="btn btn-default btn-sm")
+
+
+    h3 Add Birthplace
+    form(method="POST" action="/person/born/add")
+        input(type="hidden" name="id" value=`${id}`)
+        input(type="hidden" name="name" value=`${name}`)
+        input(type="text" name="location" placeholder=`${entercity}`)
+        input(type="text" name="year" placeholder="Year")
+        input(type="submit" value="Submit" class="btn btn-default btn-sm")
+

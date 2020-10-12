@@ -1,0 +1,71 @@
+include imports/header.pug
+
+    a(class="btn btn-primary" role="button" data-toggle="collapse" href="#addperson" aria-expanded="false"
+        aria-controls="addperson") Add New Person
+
+    a(class="btn btn-primary" role="button" data-toggle="collapse" href="#addlocation" aria-expanded="false"
+        aria-controls="addlocation") Add New Location
+
+
+    a(class="btn btn-primary" role="button" data-toggle="collapse" href="#connectfriends" aria-expanded="false"
+        aria-controls="connectfriends") Connect Friends
+
+    a(class="btn btn-primary" role="button" data-toggle="collapse" href="#addbirthplace" aria-expanded="false"
+        aria-controls="addbirthplace") Add Birthplace
+
+    br
+    br
+
+    #addperson(class="collapse")
+        .well
+            h3 Add New Person
+            form(method="POST" action="/person/add")
+                input(type="text" name="name" placeholder="Name")
+                input(type="submit" value="Submit" class="btn btn-default btn-sm")
+
+
+    #addlocation(class="collapse")
+        .well
+            h3 Add New Location
+            form(method="POST" action="/location/add")
+                input(type="text" name="city" placeholder="City")
+                input(type="text" name="state" placeholder="State")
+                input(type="submit" value="Submit" class="btn btn-default btn-sm")
+
+
+    #connectfriends(class="collapse")
+        .well
+            h3 Connect Friends
+            form(method="POST" action="/friends/connect")
+                input(type="text" name="name1" placeholder="Name")
+                input(type="text" name="name2" placeholder="Name")
+                input(type="submit" value="Submit" class="btn btn-default btn-sm")
+
+
+    #addbirthplace(class="collapse")
+        .well
+            h3 Add Birthplace
+            form(method="POST" action="/person/born/add")
+                input(type="text" name="name" placeholder="Name")
+                input(type="text" name="location" placeholder="City")
+                input(type="text" name="year" placeholder="Year")
+                input(type="submit" value="Submit" class="btn btn-default btn-sm")
+
+
+    h3 People
+    .row
+        each person in persons
+            .col-md-2
+                .well
+                    i(class="fa fa-user") 
+                    a(href=`/person/${person.id}`)  #{person.name}
+
+
+    h3 Locations
+    .row
+        each location in locations
+            .col-md-2
+                .well
+                    i(class="fa fa-map-marker") 
+                    span  #{location.city}, #{location.state}
+
