@@ -3,7 +3,6 @@
 ## Connect with friends online
 
 * Users can organize, review, and merge your contacts, create personal mailing lists.
-<br>
 * Quickly send messages to groups of frequent contacts, without entering their addresses individually.
 <br><br>
 <p float="left">
